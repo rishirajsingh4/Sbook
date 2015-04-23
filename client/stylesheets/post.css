@@ -1,0 +1,16 @@
+.post-container {
+    
+    background: #ffa;
+    width: 100%;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    *zoom: 1;
+    position: relative;
+    opacity: 1;
+}

@@ -1,0 +1,14 @@
+<template name="postList">
+	<div class="post-container">
+		{{#each posts}}
+			{{body}}
+			<br>
+			{{#if liked}}
+				<span class="like-button">UnLike</span>
+			{{else}}
+				<span class="like-button">Like</span>
+			{{/if}}
+			&nbsp;&nbsp;&bull;<span class="comment-button">&nbsp;Comment</span>
+		{{/each}}
+	</div>
+</template>
