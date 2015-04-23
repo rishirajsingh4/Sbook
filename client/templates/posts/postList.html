@@ -9,6 +9,21 @@
 				<span class="like-button">Like</span>
 			{{/if}}
 			&nbsp;&nbsp;&bull;<span class="comment-button">&nbsp;Comment</span>
+			<div class="row">
+				<div class="col-md-12">
+					<form>
+						<input class="form-control comment-input" name="comment" placeholder="Share your thoughts..." id="commentBox" />
+					</form>
+				</div>
+				
+			</div>
+			
+			<div>
+			
+			{{#each comments}}
+				{{cmnt}}
+			{{/each}}
+			</div>
 		{{/each}}
 	</div>
 </template>

@@ -2,7 +2,42 @@ body{
 	margin: 0;
 }
 .navbar{
-	
+	background: #00436F;
 	height: 50px;
 	margin: 0px;
+	border-color: rgb(0, 67, 111);
+	border-top-left-radius: 0;
+  	border-top-right-radius: 0;
+	border-bottom-left-radius: 0;
+  	border-bottom-right-radius: 0;
+}
+
+.navbar-default .navbar-brand {
+  color: #FDFBFB;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.navbar-default .navbar-brand:hover {
+  color: #CCCCCC;
+  -webkit-transition: all 300ms 0ms;
+  -webkit-transition-delay: ease-in-out;
+  -moz-transition: all 300ms 0ms ease-in-out;
+  -o-transition: all 300ms 0ms ease-in-out;
+  transition: all 300ms 0ms ease-in-out;
+}
+
+.navbar-default .navbar-collapse a{
+	color: #FDFBFB;
+	font-size: 16px;
+}
+
+.navbar-default .navbar-collapse a:hover{
+	color: #CCCCCC;
+	text-decoration: none;
+  	-webkit-transition: all 200ms 0ms;
+    -webkit-transition-delay: ease-in-out;
+    -moz-transition: all 200ms 0ms ease-in-out;
+    -o-transition: all 200ms 0ms ease-in-out;
+    transition: all 200ms 0ms ease-in-out;
 }
