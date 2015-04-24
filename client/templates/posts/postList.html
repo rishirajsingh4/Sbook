@@ -1,52 +1,144 @@
 <template name="postList">
 	{{#each posts}}
-		<div class="post-upper-container">
+	
+		<div class="row">
 			
-				<div class="row">
-					<div class="col-md-12" >
-						<span class="title" >{{body}}</span>&nbsp;&nbsp;
+			<div class="col-md-2 left-box" style="padding-right:0px;">
+				<div class="pull-right">
+					<div class="text-align:center">
+						<img src="{{postOwneravatar}}" style="position:relative; width:75px; height:75px; border-radius: 10px; margin-top:0px; box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.67);">
 						
 					</div>
-				</div>
-
-				<div class="row" style="margin-top:10px;">
-					<div class="col-md-12" style="padding:0;">
-						<div class="col-md-1">
-	                            <img src="{{avatar}}" style="position:relative; width:45px; height:45px; border-radius: 50px; margin-top:0px; box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.67);">
-	                    </div>
-	                    <div class="col-md-11" style="margin-top:10px;">
-	                    	<span class="username" style=" font-size:16px; margin:10px; margin-right:0;">{{username}}</span>
-	     					<span class="date" style=" margin:10px;">&bull;&nbsp;{{createdAt}}</span>
-	                   </div>
-					</div>
+					
 				</div>
 				
+			</div>
 			
-		</div>
+			<div class="col-md-10 right-box">
+				
+				<div class="post-upper-container">
+				
+					<div class="row" >
+						<div class="col-md-12" >
+							
+		                    <span class="username" style=" font-size:16px; margin-right:0; text-transform:capitalize"><b>{{username}}</b></span>
+		     				
+		     				<span style="color:rgb(99, 103, 107)">&nbsp;says</span>
+		     				
+		     				<span class="pull-right" style="font-size:12px; color:grey;">{{createdAt}}</span>
+		     				<span class="glyphicon glyphicon-time pull-right" style="position:relative; top:3px; font-size:10px; color:grey; margin-right:5px;"></span>
 
-		<div class="post-lower-container">
-			{{#if liked}}
-				<span class="like-button">Unlike</span> 
-			{{else}}
-				<span class="like-button">Like</span> 
-			{{/if}} &nbsp;&nbsp;&bull;
+				            
+		                   
+						</div>
+					</div>
 
-			<span class="comment-button">&nbsp;Comment</span>
-			
-			<div class="row">
-				<div class="col-md-12">
-					<form>
-			            <input class="form-control comment-input" name="comment" placeholder="Share your thoughts..." id="commentBox" />
-					</form>
+					<div class="row">
+						<div class="col-md-12" style="margin-top:5px;" >
+							<span class="title" >{{body}}</span>&nbsp;&nbsp;
+							
+						</div>
+					</div>
+
+					
+					
+				
 				</div>
-			</div>
-			
-			<div>
-				{{#each comments}} {{cmnt}} {{/each}}
+
+				<div class="post-middle-container" data-toggle="collapse">
+					{{#if liked}}
+						<span class="like-button">Unlike</span> 
+					{{else}}
+						<span class="like-button">Like</span> 
+					{{/if}} &nbsp;&nbsp;
+
+					<span style="color:gray;">&bull;&nbsp;</span>
+
+					<span class="comment-button">Comment</span>&nbsp;&nbsp;&nbsp;&nbsp;
+
+					<span style="color:gray;">&bull;&nbsp;</span>
+
+					<span class="glyphicon glyphicon-thumbs-up"><span style="position:relative; top:-2px; margin-left:5px;">{{likesCount}}</span></span>&nbsp;&nbsp;&nbsp;
+
+
+
+					<span class="glyphicon glyphicon-comment comment-icon" id="{{_id}}"><span style="position:relative; top:-3px; margin-left:5px;">{{commentsCount}}</span></span>
+				</div>
+
+				<div class="post-lower-container">
+
+
+					<div class="comments-container" id="{{_id}}" style="position:relative">
+						{{#each comments}}
+							<div class="row singleComment" >
+								<div class="col-md-12">
+									
+								<div class="row">
+									<div class="col-md-12 comments-column">
+				                        <div class="col-md-1" style="padding-left:0px;">
+				                            <img src="{{commentOwnerAvatar}}" style="position:relative; width:40px; height:40px; border-radius: 5px; margin-top:0px; box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.67);">
+				                        </div>
+				                        
+				                        <div class="col-md-9" style="margin-left:0px; padding:0px;">
+				                        
+				                            <b><a class="username">{{username}}</a></b> &nbsp;&nbsp;&nbsp;&nbsp;
+				                            
+				                            <span class="glyphicon glyphicon-time" style="font-size:10px; color:grey;"></span>
+
+				                            <span  style="font-size:12px; color:grey;">  {{submitted}}</span>
+				                            <br>
+				                            <div style="word-wrap: break-word; margin-top:3px;"> {{cmnt}}</div>
+				                            
+				                        </div>
+
+				                        <div class="col-md-2" style="padding:0px;" >
+				                            <span class="pull-right replyButton" id="{{_id}}" style="font-size:12px;"> Reply</span> 
+				                            {{#if ownComment}}
+				                                <span title="Delete comment" class="glyphicon glyphicon-remove-circle pull-right commentDelete" style="margin-right:13px; margin-top:7px;"></span> 
+				                            {{/if}}
+
+				                            
+				                        </div>
+			                        </div>
+			                    </div>
+
+			                    </div>
+							</div>
+							<hr style="margin-bottom: 10px; margin-top: 10px; border-top: 1px solid rgb(211, 207, 207);">
+						{{/each}}
+					</div>
+
+					{{#if currentUser}}
+					<div class="row">
+						<div class="col-md-12">
+
+							<div class="col-md-1" style="padding:0;">
+		                        <img src="{{currentUserAvatar}}" style="position:relative; width:35px; height:33px; border-radius: 3px; margin-top:0px; box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.67);">
+		                    </div>
+		                    
+		                    <div class="col-md-11" style="padding:0;">
+		                        <form>
+		                        	<input class="form-control comment-input" name="comment" placeholder="Share your thoughts..." id="commentBox" />
+		                        </form>
+		                    </div>
+
+							
+						</div>
+					</div>
+					{{else}}
+						<div class="row" style="text-align:center; color:rgb(132, 97, 97)">
+							Please SignIn to comment!!
+						</div>
+						
+					{{/if}}
+					
+					
+				</div>
+
+			<br>
 			</div>
 		</div>
-
-		<br>
+		
 			
 	{{/each}}
 	

@@ -11,12 +11,37 @@ Template.postList.helpers({
     },
 
     comments: function(){
-    	//console.log(this._id);
+    	console.log(this._id);
     	console.log(Comments.find({postId:this._id}).fetch());
     	return Comments.find({postId:this._id});
     },
 
-    avatar: function() {
+    postOwneravatar: function() {
+        var user = Meteor.users.findOne({_id: this.userId});
+        //console.log(user);
+        if(user.services.google){
+            return user.services.google.picture;
+        } else {
+            return "/pa3.jpg";
+        }
+
+    },
+
+    currentUserAvatar: function(){
+        
+        var user = Meteor.users.findOne(Meteor.user()._id);
+        
+        if(user.services.google){
+            return user.services.google.picture;
+        } else {
+            return "/pa3.jpg";
+        }
+
+    },
+
+    commentOwnerAvatar: function() {
+        //console.log(this._id);
+
         var user = Meteor.users.findOne({_id: this.userId});
         //console.log(user);
         if(user.services.google){
@@ -58,6 +83,43 @@ Template.postList.events({
             }
 
         });
-	}
+	},
+
+    "click .right-box": function(){
+        //window.alert(this._id);
+        
+        var idToShow = this._id;
+
+            if ($('.comments-container#'+idToShow).is(':visible')) {
+                $('.comments-container#'+idToShow).hide("slow");
+                    
+            } else {
+                console.log(idToShow);
+                $('.comments-container#'+idToShow).show("slow");
+            }
+    }
 	
 });
+
+Template.postList.rendered = function () {
+   
+   $(document).ready(function() {
+
+        $(".post-middle-container").click(function(){
+            
+            window.alert("hi");
+            var idToShow = this.id;
+
+             if ($('.comments-container#'+idToShow).is(':visible')) {
+                $('.comments-container#'+idToShow).hide("slow");
+                    // do save info
+                $(this).val('Reply');
+            } else {
+                $('.comments-container#'+idToShow).show("slow");
+                $(this).val('Reply');
+            }
+        });
+    });
+};
+    
+
