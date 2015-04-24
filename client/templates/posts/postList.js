@@ -14,7 +14,18 @@ Template.postList.helpers({
     	//console.log(this._id);
     	console.log(Comments.find({postId:this._id}).fetch());
     	return Comments.find({postId:this._id});
-    }
+    },
+
+    avatar: function() {
+        var user = Meteor.users.findOne({_id: this.userId});
+        //console.log(user);
+        if(user.services.google){
+            return user.services.google.picture;
+        } else {
+            return "/pa3.jpg";
+        }
+
+    },
 });
 
 Template.postList.events({

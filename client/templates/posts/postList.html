@@ -1,29 +1,53 @@
 <template name="postList">
-	<div class="post-container">
-		{{#each posts}}
-			{{body}}
-			<br>
+	{{#each posts}}
+		<div class="post-upper-container">
+			
+				<div class="row">
+					<div class="col-md-12" >
+						<span class="title" >{{body}}</span>&nbsp;&nbsp;
+						
+					</div>
+				</div>
+
+				<div class="row" style="margin-top:10px;">
+					<div class="col-md-12" style="padding:0;">
+						<div class="col-md-1">
+	                            <img src="{{avatar}}" style="position:relative; width:45px; height:45px; border-radius: 50px; margin-top:0px; box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.67);">
+	                    </div>
+	                    <div class="col-md-11" style="margin-top:10px;">
+	                    	<span class="username" style=" font-size:16px; margin:10px; margin-right:0;">{{username}}</span>
+	     					<span class="date" style=" margin:10px;">&bull;&nbsp;{{createdAt}}</span>
+	                   </div>
+					</div>
+				</div>
+				
+			
+		</div>
+
+		<div class="post-lower-container">
 			{{#if liked}}
-				<span class="like-button">UnLike</span>
+				<span class="like-button">Unlike</span> 
 			{{else}}
-				<span class="like-button">Like</span>
-			{{/if}}
-			&nbsp;&nbsp;&bull;<span class="comment-button">&nbsp;Comment</span>
+				<span class="like-button">Like</span> 
+			{{/if}} &nbsp;&nbsp;&bull;
+
+			<span class="comment-button">&nbsp;Comment</span>
+			
 			<div class="row">
 				<div class="col-md-12">
 					<form>
-						<input class="form-control comment-input" name="comment" placeholder="Share your thoughts..." id="commentBox" />
+			            <input class="form-control comment-input" name="comment" placeholder="Share your thoughts..." id="commentBox" />
 					</form>
 				</div>
-				
 			</div>
 			
 			<div>
-			
-			{{#each comments}}
-				{{cmnt}}
-			{{/each}}
+				{{#each comments}} {{cmnt}} {{/each}}
 			</div>
-		{{/each}}
-	</div>
+		</div>
+
+		<br>
+			
+	{{/each}}
+	
 </template>

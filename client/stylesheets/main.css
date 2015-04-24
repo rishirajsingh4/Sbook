@@ -1,0 +1,9 @@
+body{
+	margin: 0;
+	background-color: rgb(233, 234, 237);
+	background-image:url("bg4.jpg");
+	background-repeat:no-repeat;
+	background-size:100% 100%;
+    background-attachment: fixed;
+    opacity: 0.98;
+}
