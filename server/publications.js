@@ -1,6 +1,18 @@
 Meteor.startup(function () {
     if (Posts.find().count() === 0) {
-      Posts.insert({body: "Test Status"});
+    	
+    	var userId = Meteor.users.insert({username : "TestUser"});
+
+    	Posts.insert({body: "Test Status",
+  					submitted : new Date(),
+                	createdAt:moment().format('MMMM Do YYYY, h:mm a'),
+  					username : "TestUser",
+  					userId: userId,
+  					likesCount : 0,
+  					commentsCount:0,
+  		});
+
+      	
     }
 });
 
