@@ -68,7 +68,7 @@
 				<div class="post-lower-container">
 
 
-					<div class="comments-container" id="{{_id}}" style="position:relative">
+					<div class="comments-container" id="{{_id}}" style="position:relative" hidden>
 						{{#each comments}}
 							<div class="row singleComment" >
 								<div class="col-md-12">
@@ -91,20 +91,12 @@
 				                            
 				                        </div>
 
-				                        <div class="col-md-2" style="padding:0px;" >
-				                            <span class="pull-right replyButton" id="{{_id}}" style="font-size:12px;"> Reply</span> 
-				                            {{#if ownComment}}
-				                                <span title="Delete comment" class="glyphicon glyphicon-remove-circle pull-right commentDelete" style="margin-right:13px; margin-top:7px;"></span> 
-				                            {{/if}}
-
-				                            
-				                        </div>
 			                        </div>
 			                    </div>
 
 			                    </div>
 							</div>
-							<hr style="margin-bottom: 10px; margin-top: 10px; border-top: 1px solid rgb(211, 207, 207);">
+							<hr style="margin-bottom: 15px; margin-top: 15px; border-top: 1px solid rgb(211, 207, 207);">
 						{{/each}}
 					</div>
 

@@ -11,8 +11,8 @@ Template.postList.helpers({
     },
 
     comments: function(){
-    	console.log(this._id);
-    	console.log(Comments.find({postId:this._id}).fetch());
+    	//console.log(this._id);
+    	//console.log(Comments.find({postId:this._id}).fetch());
     	return Comments.find({postId:this._id});
     },
 
@@ -85,7 +85,7 @@ Template.postList.events({
         });
 	},
 
-    "click .right-box": function(){
+    "click .comment-icon": function(){
         //window.alert(this._id);
         
         var idToShow = this._id;
@@ -118,6 +118,10 @@ Template.postList.rendered = function () {
                 $('.comments-container#'+idToShow).show("slow");
                 $(this).val('Reply');
             }
+        });
+
+        $('.comment-button').click(function() {
+            $(".comment-input").focus()
         });
     });
 };

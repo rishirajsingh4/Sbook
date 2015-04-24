@@ -1,12 +1,12 @@
 Meteor.startup(function () {
     if (Posts.find().count() === 0) {
     	
-    	var userId = Meteor.users.insert({username : "TestUser"});
+    	var userId = Meteor.users.insert({username : "Test User", services: {}});
 
-    	Posts.insert({body: "Test Status",
+    	Posts.insert({body: "Hello World",
   					submitted : new Date(),
                 	createdAt:moment().format('MMMM Do YYYY, h:mm a'),
-  					username : "TestUser",
+  					username : "Test User",
   					userId: userId,
   					likesCount : 0,
   					commentsCount:0,

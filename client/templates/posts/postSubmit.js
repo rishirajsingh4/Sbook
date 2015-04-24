@@ -4,10 +4,16 @@ Template.postSubmit.events({
 		var post = {};
 		post.body = body;
 
-		console.log(post.body);
+		//console.log(post.body);
 
 		if (post.body == null || post.body == ""){
             window.alert("Please give your blog a TITLE");
+            return false;
+        }
+
+        var user = Meteor.user();
+        if(!user){
+            window.alert("Please SignIn in to post.");
             return false;
         }
 
@@ -16,7 +22,10 @@ Template.postSubmit.events({
             if (error)
                 return alert(error.reason);
 
-            //Router.go('textList');
+            if(result){
+                $('#postInputBox').val("");       
+
+            }
         });
 	}
 });

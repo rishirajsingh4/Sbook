@@ -39,3 +39,20 @@
     -o-transition: all 200ms 0ms ease-in-out;
     transition: all 200ms 0ms ease-in-out;
 }
+
+#login-dropdown-list .dropdown-menu {
+  min-width: 300px;
+  padding: 15px;
+  margin-top: 13px;
+}
+
+#login-dropdown-list #signup-link {
+  margin-top: 10px;
+  color: rgb(0, 130, 187);
+}
+
+#login-dropdown-list #signup-link:hover {
+  margin-top: 10px;
+  color: rgb(0, 130, 187);
+  text-decoration: underline;
+}

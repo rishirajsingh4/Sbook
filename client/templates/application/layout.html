@@ -11,9 +11,18 @@
                 <a class="navbar-brand" href="#">StatusBook</a>
             </div>
             <div class="collapse navbar-collapse" id="rightNavigationBar">
-                <ul class="nav navbar-nav navbar-right">
+                
+                <ul class="nav navbar-nav navbar-right" >
+                    <li style="display:inline">
+                        {{#if currentUser}}
+                                
+                        <img src="{{avatar}}" title="{{currentUser.username}}" style="position:relative; width:45px; height:45px; border-radius: 80px; margin-top:0px; right:0px;">
+                                    
+                        {{/if}} 
+                        
+                    </li>
                     <li>
-                        <a href="#" style="text-decoration:none !important;">{{> loginButtons}}</a>
+                    <a href="#" style="text-decoration:none !important;">{{> loginButtons}}</a>
                     </li>
                 </ul>
             </div>
